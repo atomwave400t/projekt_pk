@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="p1" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+        <ui:composition template="./../template.xhtml">
+            <ui:define name="title">
+                <h:outputText 
+                    value="#{bundle['dodaj_pracownik2.tytul']}">
+                </h:outputText>
+
+            </ui:define>
+            <ui:define name="content">
+                <h:form id="form">
+                    <h:panelGrid columns="2" id="grid">
+                        <h:outputLabel value="#{bundle['dodaj_pracownik2.nazwa']}"  for="nazwa" />
+                        <h:inputText
+                            id="nazwa"
+                            title="#{bundle['dodaj_pracownik2.nazwa1']}"
+                            value="#{managed_pracownik.nazwa}"
+                            required="true"
+                            requiredMessage="#{bundle['dodaj_pracownik2.blad_nazwa']}"
+                            disabled="#{managed_pracownik.zmiana==0}" >
+                            <f:valueChangeListener binding="#{managed_pracownik.zmiana1}"/>
+                        </h:inputText>
+                        <h:outputLabel value="#{bundle['dodaj_pracownik2.cena']}" for="cena" />  
+
+                        <h:inputText
+                            id="cena"
+                            title="#{bundle['dodaj_pracownik2.cena1']}"
+                            value="#{managed_pracownik.cena}" 
+                            required="true"
+                            requiredMessage="#{bundle['dodaj_pracownik2.blad_cena']}" 
+                            converter="#{managed_pracownik.number_convert}"
+                            converterMessage="Blad! Poprawny format: 0,0 zł lub 0 zł" >
+                            <f:valueChangeListener binding="#{managed_pracownik.zmiana2}"/>
+                            <f:validateLongRange minimum="#{managed_pracownik.min}"/>
+                        </h:inputText>
+                        
+                        <h:outputLabel value="#{bundle['dodaj_pracownik2.promocja']}" for="promocja" />    
+                        <h:inputText
+                            id="promocja"
+                            title="#{bundle['dodaj_pracownik2.promocja1']}"
+                            value="#{managed_pracownik.promocja}"
+                            required="true"
+                            requiredMessage="#{bundle['dodaj_pracownik2.blad_promocja']}" 
+                            validator="#{managed_pracownik.zakrespromocji}"  converter="javax.faces.Integer">
+                            <f:convertNumber  currencySymbol="%" type="currency"/>
+                        </h:inputText>
+
+                        <h:outputLabel value="#{bundle['dodaj_pracownik2.data']}"  
+                                       for="data" /> 
+                        <h:inputText 
+                            id="data"
+                            title="#{bundle['dodaj_pracownik2.data1']}"
+                            value="#{managed_pracownik.data_produkcji}"
+                            required="true"                                        
+                            requiredMessage="#{bundle['dodaj_pracownik2.blad_data']}"> 
+                            <f:convertDateTime pattern="dd-MM-yyyy" />  
+                        </h:inputText>
+                        
+                        <h:outputLabel value="#{bundle['dodaj_pracownik2.ilosc']}"  
+                                       for="ilosc" /> 
+                        <h:inputText
+                            id="ilosc"
+                            title="#{bundle['dodaj_pracownik2.ilosc1']}"
+                            value="#{managed_pracownik.ilosc}"
+                            required="true"
+                            requiredMessage="#{bundle['dodaj_pracownik2.blad_ilosc']}">
+                            <f:validateLongRange minimum="#{managed_pracownik.min}"/>
+                        </h:inputText>
+                        
+                        <h:outputLabel value="#{bundle['dodaj_pracownik2.producent']}"  
+                                       for="producent" /> 
+                        <h:inputText
+                            id="producent"
+                            title="#{bundle['dodaj_pracownik2.producent1']}"
+                            value="#{managed_pracownik.producent}"
+                            required="true"
+                            requiredMessage="#{bundle['dodaj_pracownik2.blad_producent']}">
+                        </h:inputText>
+                        
+                        <h:outputLabel value="#{bundle['dodaj_pracownik2.data_przydatnosci']}"  
+                                       for="data_przydatnosci" /> 
+                        <h:inputText 
+                            id="data_przydatnosci"
+                            title="#{bundle['dodaj_pracownik2.data_przydatnosci1']}"
+                            value="#{managed_pracownik.data_przydatnosci}"
+                            required="true"                                        
+                            requiredMessage="#{bundle['dodaj_pracownik2.blad_data_przydatnosci']}"> 
+                            <f:convertDateTime pattern="dd-MM-yyyy" />  
+                        </h:inputText>
+                        
+                    </h:panelGrid>
+                    <h:commandLink action= "rezultat2" value="#{bundle['dodaj_pracownik2.ok']}"
+                                rendered="#{managed_pracownik.zmiana==1}">
+                        <f:actionListener binding="#{managed_pracownik}"/>
+                    </h:commandLink>
+                    <h:commandLink action="#{managed_pracownik.update}"
+                                value="#{bundle['dodaj_pracownik2.ok']}"
+                                rendered="#{managed_pracownik.zmiana==0}"/>
+                </h:form> 
+            </ui:define>
+        </ui:composition>
+
+
+    </body>
+</html>
