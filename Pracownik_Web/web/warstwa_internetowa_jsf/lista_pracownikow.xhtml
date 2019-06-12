@@ -26,65 +26,53 @@
                             </h:column> 
                             <h:column>
                                 <f:facet name="header">
-                                    <h:outputText value="#{bundle['lista_pracownikow.nazwa']}"/>
+                                    <h:outputText value="#{bundle['lista_pracownikow.imie']}"/>
                                 </f:facet>
-                                <h:outputText value="#{item.nazwa}"/>
+                                <h:outputText value="#{item.imie}"/>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
-                                    <h:outputText value="#{bundle['lista_pracownikow.cena']}"/>
+                                    <h:outputText value="#{bundle['lista_pracownikow.nazwisko']}"/>
                                 </f:facet>
-                                <h:outputText value="#{item.cena}">
+                                <h:outputText value="#{item.nazwisko}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle['lista_pracownikow.numerTelefonu']}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.numerTelefonu}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle['lista_pracownikow.adres']}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.adres}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle['lista_pracownikow.miasto']}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.miasto}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle['lista_pracownikow.stanowisko']}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.stanowisko}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle['lista_pracownikow.pensja']}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.pensja}">
                                     <f:convertNumber pattern="####.## z&#322;"/>
                                 </h:outputText>
                             </h:column>
-
                             <h:column>
                                 <f:facet name="header">
-                                    <h:outputText value="#{bundle['lista_pracownikow.promocja']}"/>
+                                    <h:outputText value="#{bundle['lista_pracownikow.dataRozpoczeciaPracy']}"/>
                                 </f:facet>
-                                <h:outputText value="#{item.promocja}">
-                                    <f:convertNumber currencySymbol="%" type="currency"/>
-                                </h:outputText>
-                            </h:column>
-
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle['lista_pracownikow.data']}"/>
-                                </f:facet>
-                                <h:outputText value="#{item.data_produkcji}">
-                                    <f:convertDateTime pattern="EEEEEEEE, dd-MM-yyyy" />
-                                </h:outputText>
-                            </h:column>
-
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle['lista_pracownikow.cena_brutto']}"/>
-                                </f:facet>
-                                <h:outputText value="#{item.cena_brutto}">
-                                    <f:convertNumber currencySymbol="z&#322;" type="currency"/>
-                                </h:outputText>
-                            </h:column>
-                            
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle['lista_pracownikow.ilosc']}"/>
-                                </f:facet>
-                                <h:outputText value="#{item.ilosc}"/>
-                            </h:column>
-                            
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle['lista_pracownikow.producent']}"/>
-                                </f:facet>
-                                <h:outputText value="#{item.producent}"/>
-                            </h:column>
-                            
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle['lista_pracownikow.data_przydatnosci']}"/>
-                                </f:facet>
-                                <h:outputText value="#{item.data_przydatnosci}">
+                                <h:outputText value="#{item.dataRozpoczeciaPracy}">
                                     <f:convertDateTime pattern="EEEEEEEE, dd-MM-yyyy" />
                                 </h:outputText>
                             </h:column>
