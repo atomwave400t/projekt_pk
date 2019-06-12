@@ -183,6 +183,10 @@ public class Managed_pracownik implements ActionListener, Serializable{
         return pracownik_dto.getStanowisko();
     }
     
+    public void setPensja(float pensja) {
+        this.pracownik_dto.setPensja(pensja);
+    }
+    
     public float getPensja() {
         return pracownik_dto.getPensja();
     }
