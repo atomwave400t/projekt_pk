@@ -107,8 +107,6 @@ public class Managed_pracownik implements ActionListener, Serializable{
         powrot = 1;
         return items;
     }
-
-    
     
     private NumberConverter number_convert = new NumberConverter();
 
@@ -129,30 +127,6 @@ public class Managed_pracownik implements ActionListener, Serializable{
         return 100;
     }
 
-    public String getNazwa() {
-        return pracownik_dto.getNazwa();
-    }
-
-    public void setNazwa(String nazwa) {
-        this.pracownik_dto.setNazwa(nazwa);
-    }
-
-    public float getCena() {
-        return pracownik_dto.getCena();
-    }
-
-    public void setCena(float cena) {
-        this.pracownik_dto.setCena(cena);
-    }
-
-    public int getPromocja() {
-        return pracownik_dto.getPromocja();
-    }
-
-    public void setPromocja(int promocja) {
-        this.pracownik_dto.setPromocja(promocja);
-    }
-
     public int getStan() {
         return stan;
     }
@@ -160,45 +134,65 @@ public class Managed_pracownik implements ActionListener, Serializable{
     public void setStan(int stan) {
         this.stan = stan;
     }
-
-    public float getCena_brutto() {
-        return pracownik_dto.getCena_brutto();
-    }
     
-    public void setIlosc(int ilosc) {
-        this.pracownik_dto.setIlosc(ilosc);
-    }
-    
-    public int getIlosc() {
-        return pracownik_dto.getIlosc();
-    }
-    
-    public void setProducent(String producent) {
-        this.pracownik_dto.setProducent(producent);
-    }
-    
-    public String getProducent() {
-        return pracownik_dto.getProducent();
-    }
-    
-    public void setCena_brutto(float cena_brutto) {
-        this.pracownik_dto.setCena_brutto(cena_brutto);
+    public String getImie() {
+        return pracownik_dto.getImie();
     }
 
-    public Date getData_produkcji() {
-        return pracownik_dto.getData_produkcji();
-    }
-
-    public void setData_produkcji(Date data_produkcji) {
-        this.pracownik_dto.setData_produkcji(data_produkcji);
+    public void setImie(String imie) {
+        this.pracownik_dto.setImie(imie);
     }
     
-    public Date getData_przydatnosci() {
-        return pracownik_dto.getData_przydatnosci();
+    public void setNazwisko(String nazwisko) {
+        this.pracownik_dto.setNazwisko(nazwisko);
+    }
+    
+    public String getNazwisko() {
+        return pracownik_dto.getNazwisko();
+    }
+   
+    public void setNumerTelefonu(String numerTelefonu) {
+        this.pracownik_dto.setNumerTelefonu(numerTelefonu);
+    }
+    
+    public String getNumerTelefonu() {
+        return pracownik_dto.getNumerTelefonu();
+    }
+    
+    public void setAdres(String adres) {
+        this.pracownik_dto.setAdres(adres);
+    }
+    
+    public String getAdres() {
+        return pracownik_dto.getAdres();
+    }
+    
+    public void setMiasto(String miasto) {
+        this.pracownik_dto.setMiasto(miasto);
+    }
+    
+    public String getMiasto() {
+        return pracownik_dto.getMiasto();
+    }
+    
+    public void setStanowisko(String stanowisko) {
+        this.pracownik_dto.setStanowisko(stanowisko);
+    }
+    
+    public String getStanowisko() {
+        return pracownik_dto.getStanowisko();
+    }
+    
+    public float getPensja() {
+        return pracownik_dto.getPensja();
+    }
+    
+    public Date getDataRozpoczeciaPracy() {
+        return pracownik_dto.getDataRozpoczeciaPracy();
     }
 
-    public void setData_przydatnosci(Date data_przydatnosci) {
-        this.pracownik_dto.setData_przydatnosci(data_przydatnosci);
+    public void setDataRozpoczeciaPracy(Date dataRozpoczecia) {
+        this.pracownik_dto.setDataRozpoczeciaPracy(dataRozpoczecia);
     }
 
     public void setItems(DataModel items) {
