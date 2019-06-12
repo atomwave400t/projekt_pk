@@ -17,81 +17,89 @@
             <ui:define name="content">
                 <h:form id="form">
                     <h:panelGrid columns="2" id="grid">
-                        <h:outputLabel value="#{bundle['dodaj_pracownik2.nazwa']}"  for="nazwa" />
+                        <h:outputLabel value="#{bundle['dodaj_pracownik2.imie']}"  for="imie" />
                         <h:inputText
-                            id="nazwa"
-                            title="#{bundle['dodaj_pracownik2.nazwa1']}"
-                            value="#{managed_pracownik.nazwa}"
+                            id="imie"
+                            title="#{bundle['dodaj_pracownik2.imie1']}"
+                            value="#{managed_pracownik.imie}"
                             required="true"
-                            requiredMessage="#{bundle['dodaj_pracownik2.blad_nazwa']}"
+                            requiredMessage="#{bundle['dodaj_pracownik2.blad_imie']}"
                             disabled="#{managed_pracownik.zmiana==0}" >
                             <f:valueChangeListener binding="#{managed_pracownik.zmiana1}"/>
                         </h:inputText>
-                        <h:outputLabel value="#{bundle['dodaj_pracownik2.cena']}" for="cena" />  
+                        
+                        <h:outputLabel value="#{bundle['dodaj_pracownik2.nazwisko']}"  
+                                       for="nazwisko" /> 
+                        <h:inputText
+                            id="nazwisko"
+                            title="#{bundle['dodaj_pracownik2.nazwisko1']}"
+                            value="#{managed_pracownik.nazwisko}"
+                            required="true"
+                            requiredMessage="#{bundle['dodaj_pracownik2.blad_nazwisko']}">
+                        </h:inputText>
+                        
+                        <h:outputLabel value="#{bundle['dodaj_pracownik2.numerTelefonu']}"  
+                                       for="numerTelefonu" /> 
+                        <h:inputText
+                            id="numerTelefonu"
+                            title="#{bundle['dodaj_pracownik2.numerTelefonu1']}"
+                            value="#{managed_pracownik.numerTelefonu}"
+                            required="true"
+                            requiredMessage="#{bundle['dodaj_pracownik2.blad_numerTelefonu']}">
+                        </h:inputText>
+                        
+                        <h:outputLabel value="#{bundle['dodaj_pracownik2.adres']}"  
+                                       for="adres" /> 
+                        <h:inputText
+                            id="adres"
+                            title="#{bundle['dodaj_pracownik2.adres1']}"
+                            value="#{managed_pracownik.adres}"
+                            required="true"
+                            requiredMessage="#{bundle['dodaj_pracownik2.blad_adres']}">
+                        </h:inputText>
+                        
+                        <h:outputLabel value="#{bundle['dodaj_pracownik2.miasto']}"  
+                                       for="miasto" /> 
+                        <h:inputText
+                            id="miasto"
+                            title="#{bundle['dodaj_pracownik2.miasto1']}"
+                            value="#{managed_pracownik.miasto}"
+                            required="true"
+                            requiredMessage="#{bundle['dodaj_pracownik2.blad_miasto']}">
+                        </h:inputText>
+                        
+                        <h:outputLabel value="#{bundle['dodaj_pracownik2.stanowisko']}"  
+                                       for="stanowisko" /> 
+                        <h:inputText
+                            id="stanowisko"
+                            title="#{bundle['dodaj_pracownik2.stanowisko1']}"
+                            value="#{managed_pracownik.stanowisko}"
+                            required="true"
+                            requiredMessage="#{bundle['dodaj_pracownik2.blad_stanowisko']}">
+                        </h:inputText>
+                        
+                        <h:outputLabel value="#{bundle['dodaj_pracownik2.pensja']}" for="pensja" />  
 
                         <h:inputText
                             id="cena"
-                            title="#{bundle['dodaj_pracownik2.cena1']}"
-                            value="#{managed_pracownik.cena}" 
+                            title="#{bundle['dodaj_pracownik2.pensja1']}"
+                            value="#{managed_pracownik.pensja}" 
                             required="true"
-                            requiredMessage="#{bundle['dodaj_pracownik2.blad_cena']}" 
+                            requiredMessage="#{bundle['dodaj_pracownik2.blad_pensja']}" 
                             converter="#{managed_pracownik.number_convert}"
                             converterMessage="Blad! Poprawny format: 0,0 zł lub 0 zł" >
                             <f:valueChangeListener binding="#{managed_pracownik.zmiana2}"/>
                             <f:validateLongRange minimum="#{managed_pracownik.min}"/>
                         </h:inputText>
-                        
-                        <h:outputLabel value="#{bundle['dodaj_pracownik2.promocja']}" for="promocja" />    
-                        <h:inputText
-                            id="promocja"
-                            title="#{bundle['dodaj_pracownik2.promocja1']}"
-                            value="#{managed_pracownik.promocja}"
-                            required="true"
-                            requiredMessage="#{bundle['dodaj_pracownik2.blad_promocja']}" 
-                            validator="#{managed_pracownik.zakrespromocji}"  converter="javax.faces.Integer">
-                            <f:convertNumber  currencySymbol="%" type="currency"/>
-                        </h:inputText>
 
-                        <h:outputLabel value="#{bundle['dodaj_pracownik2.data']}"  
-                                       for="data" /> 
+                        <h:outputLabel value="#{bundle['dodaj_pracownik2.dataRozpoczeciaPracy']}"  
+                                       for="dataRozpoczeciaPracy" /> 
                         <h:inputText 
-                            id="data"
-                            title="#{bundle['dodaj_pracownik2.data1']}"
-                            value="#{managed_pracownik.data_produkcji}"
+                            id="dataRozpoczeciaPracy"
+                            title="#{bundle['dodaj_pracownik2.dataRozpoczeciaPracy1']}"
+                            value="#{managed_pracownik.dataRozpoczeciaPracy}"
                             required="true"                                        
-                            requiredMessage="#{bundle['dodaj_pracownik2.blad_data']}"> 
-                            <f:convertDateTime pattern="dd-MM-yyyy" />  
-                        </h:inputText>
-                        
-                        <h:outputLabel value="#{bundle['dodaj_pracownik2.ilosc']}"  
-                                       for="ilosc" /> 
-                        <h:inputText
-                            id="ilosc"
-                            title="#{bundle['dodaj_pracownik2.ilosc1']}"
-                            value="#{managed_pracownik.ilosc}"
-                            required="true"
-                            requiredMessage="#{bundle['dodaj_pracownik2.blad_ilosc']}">
-                            <f:validateLongRange minimum="#{managed_pracownik.min}"/>
-                        </h:inputText>
-                        
-                        <h:outputLabel value="#{bundle['dodaj_pracownik2.producent']}"  
-                                       for="producent" /> 
-                        <h:inputText
-                            id="producent"
-                            title="#{bundle['dodaj_pracownik2.producent1']}"
-                            value="#{managed_pracownik.producent}"
-                            required="true"
-                            requiredMessage="#{bundle['dodaj_pracownik2.blad_producent']}">
-                        </h:inputText>
-                        
-                        <h:outputLabel value="#{bundle['dodaj_pracownik2.data_przydatnosci']}"  
-                                       for="data_przydatnosci" /> 
-                        <h:inputText 
-                            id="data_przydatnosci"
-                            title="#{bundle['dodaj_pracownik2.data_przydatnosci1']}"
-                            value="#{managed_pracownik.data_przydatnosci}"
-                            required="true"                                        
-                            requiredMessage="#{bundle['dodaj_pracownik2.blad_data_przydatnosci']}"> 
+                            requiredMessage="#{bundle['dodaj_pracownik2.blad_dataRozpoczeciaPracy']}"> 
                             <f:convertDateTime pattern="dd-MM-yyyy" />  
                         </h:inputText>
                         
