@@ -14,60 +14,114 @@ import java.util.Date;
  */
 public class Pracownik_dto implements Serializable{
     protected long id;
-    protected String nazwa;
-    protected float cena;
-    protected int promocja;
-    protected Date data_produkcji;
-    protected Date data_przydatnosci;
-    protected int ilosc;
-    protected String producent;
-    protected float cena_brutto;
+    protected String imie;
+    protected String nazwisko;
+    protected String numerTelefonu;
+    protected String adres;
+    protected String miasto;
+    protected String stanowisko;
+    protected float pensja;
+    protected Date dataRozpoczeciaPracy;
     
     public Pracownik_dto() {}
     
     public Pracownik_dto(Pracownik_dto o) {
-        nazwa = o.getNazwa();
-        cena = o.getCena();
-        promocja = o.getPromocja();
-        data_produkcji = o.getData_produkcji();
-        data_przydatnosci = o.getData_przydatnosci();
-        ilosc = o.getIlosc();
-        producent = o.getProducent();
+        imie = o.getImie();
+        nazwisko = o.getNazwisko();
+        numerTelefonu = o.getNumerTelefonu();
+        adres = o.getAdres();
+        miasto = o.getMiasto();
+        stanowisko = o.getStanowisko();
+        pensja = o.getPensja();
+        dataRozpoczeciaPracy = o.getDataRozpoczeciaPracy();
     }
     
-    public Pracownik_dto(String [] dane, Date data, Date dataprzydatnosci){
-        nazwa=dane[0];
-        cena=Float.parseFloat(dane[1]);
-        promocja=Integer.parseInt(dane[2]);
-        producent=dane[3];
-        ilosc=Integer.parseInt(dane[4]);
-        data_produkcji=data;
-        data_przydatnosci=dataprzydatnosci;
+//        pom.setId(pracownik.getId_());
+//        pom.setImie(pracownik.getImie());
+//        pom.setNazwisko(pracownik.getNazwisko());
+//        pom.setNumerTelefonu(pracownik.getNumerTelefonu());
+//        pom.setAdres(pracownik.getAdres());
+//        pom.setMiasto(pracownik.getMiasto());
+//        pom.setStanowisko(pracownik.getStanowisko());
+//        pom.setPensja(pracownik.getPensja());
+//        pom.setDataRozpoczeciaPracy(pracownik.getDataRozpoczeciaPracy());
+    
+    public Pracownik_dto(String [] dane, Date dataRozpoczecia){
+        imie=dane[0];
+        nazwisko=dane[1];
+        numerTelefonu=dane[2];
+        adres=dane[3];
+        miasto=dane[4];
+        stanowisko=dane[5];
+        pensja=Float.parseFloat(dane[6]);
+        dataRozpoczeciaPracy=dataRozpoczecia;
     }
 
-    public Date getData_przydatnosci() {
-        return data_przydatnosci;
+    public String getImie() {
+        return imie;
     }
 
-    public void setData_przydatnosci(Date data_przydatnosci) {
-        this.data_przydatnosci = data_przydatnosci;
+    public void setImie(String imie) {
+        this.imie = imie;
     }
 
-    public int getIlosc() {
-        return ilosc;
+    public String getNazwisko() {
+        return nazwisko;
     }
 
-    public void setIlosc(int ilosc) {
-        this.ilosc = ilosc;
+    public void setNazwisko(String nazwisko) {
+        this.nazwisko = nazwisko;
     }
 
-    public String getProducent() {
-        return producent;
+    public String getNumerTelefonu() {
+        return numerTelefonu;
     }
 
-    public void setProducent(String producent) {
-        this.producent = producent;
+    public void setNumerTelefonu(String numerTelefonu) {
+        this.numerTelefonu = numerTelefonu;
     }
+
+    public String getAdres() {
+        return adres;
+    }
+
+    public void setAdres(String adres) {
+        this.adres = adres;
+    }
+
+    public String getMiasto() {
+        return miasto;
+    }
+
+    public void setMiasto(String miasto) {
+        this.miasto = miasto;
+    }
+
+    public String getStanowisko() {
+        return stanowisko;
+    }
+
+    public void setStanowisko(String stanowisko) {
+        this.stanowisko = stanowisko;
+    }
+
+    public float getPensja() {
+        return pensja;
+    }
+
+    public void setPensja(float pensja) {
+        this.pensja = pensja;
+    }
+
+    public Date getDataRozpoczeciaPracy() {
+        return dataRozpoczeciaPracy;
+    }
+
+    public void setDataRozpoczeciaPracy(Date dataRozpoczeciaPracy) {
+        this.dataRozpoczeciaPracy = dataRozpoczeciaPracy;
+    }
+
+    
     
     public long getId() {
         return id;
@@ -75,45 +129,5 @@ public class Pracownik_dto implements Serializable{
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getNazwa() {
-        return nazwa;
-    }
-
-    public void setNazwa(String nazwa) {
-        this.nazwa = nazwa;
-    }
-
-    public float getCena() {
-        return cena;
-    }
-
-    public void setCena(float cena) {
-        this.cena = cena;
-    }
-
-    public int getPromocja() {
-        return promocja;
-    }
-
-    public void setPromocja(int promocja) {
-        this.promocja = promocja;
-    }
-
-    public Date getData_produkcji() {
-        return data_produkcji;
-    }
-
-    public void setData_produkcji(Date data_produkcji) {
-        this.data_produkcji = data_produkcji;
-    }
-
-    public float getCena_brutto() {
-        return cena_brutto;
-    }
-
-    public void setCena_brutto(float cena_brutto) {
-        this.cena_brutto = cena_brutto;
     }
 }
