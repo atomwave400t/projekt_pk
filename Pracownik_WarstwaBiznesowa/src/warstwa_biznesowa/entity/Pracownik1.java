@@ -16,65 +16,16 @@ public class Pracownik1 implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String nazwa;
-    private String producent;
-    private float cena;
-    private int promocja;
-    private int ilosc;
-    
+    private String imie;
+    private String nazwisko;
+    private String numerTelefonu;
+    private String adres;
+    private String miasto;
+    private String stanowisko;
+    private float pensja;
     
     @Temporal(javax.persistence.TemporalType.DATE)
-    Date data_produkcji;
-    @Temporal(javax.persistence.TemporalType.DATE)
-    Date data_przydatnosci;
-
-    public String getProducent() {
-        return producent;
-    }
-
-    public void setProducent(String producent) {
-        this.producent = producent;
-    }
-
-    public int getIlosc() {
-        return ilosc;
-    }
-
-    public void setIlosc(int ilosc) {
-        this.ilosc = ilosc;
-    }
-
-    public Date getData_przydatnosci() {
-        return data_przydatnosci;
-    }
-
-    public void setData_przydatnosci(Date data_przydatnosci) {
-        this.data_przydatnosci = data_przydatnosci;
-    }
-
-    public float getCena() {
-        return cena;
-    }
-
-    public String getNazwa() {
-        return nazwa;
-    }
-
-    public void setNazwa(String nazwa) {
-        this.nazwa = nazwa;
-    }
-
-    public void setCena(float cena) {
-        this.cena = cena;
-    }
-
-    public int getPromocja() {
-        return promocja;
-    }
-
-    public void setPromocja(int promocja) {
-        this.promocja = promocja;
-    }
+    Date dataRozpoczeciaPracy;
 
     public Long getId() {
         return id;
@@ -90,22 +41,78 @@ public class Pracownik1 implements Serializable {
         this.id = id;
     }
 
-    public Date getData_produkcji() {
-        return data_produkcji;
-    }
-
-    public void setData_produkcji(Date data_produkcji) {
-        this.data_produkcji = data_produkcji;
-    }
-
-  
-
     @Override
     public int hashCode() {
         int hash = 5;
         hash = 17 * hash + Objects.hashCode(this.id);
         return hash;
     }
+
+    public String getImie() {
+        return imie;
+    }
+
+    public void setImie(String imie) {
+        this.imie = imie;
+    }
+
+    public String getNazwisko() {
+        return nazwisko;
+    }
+
+    public void setNazwisko(String nazwisko) {
+        this.nazwisko = nazwisko;
+    }
+
+    public String getNumerTelefonu() {
+        return numerTelefonu;
+    }
+
+    public void setNumerTelefonu(String numerTelefonu) {
+        this.numerTelefonu = numerTelefonu;
+    }
+
+    public String getAdres() {
+        return adres;
+    }
+
+    public void setAdres(String adres) {
+        this.adres = adres;
+    }
+
+    public String getMiasto() {
+        return miasto;
+    }
+
+    public void setMiasto(String miasto) {
+        this.miasto = miasto;
+    }
+
+    public String getStanowisko() {
+        return stanowisko;
+    }
+
+    public void setStanowisko(String stanowisko) {
+        this.stanowisko = stanowisko;
+    }
+
+    public float getPensja() {
+        return pensja;
+    }
+
+    public void setPensja(float pensja) {
+        this.pensja = pensja;
+    }
+
+    public Date getDataRozpoczeciaPracy() {
+        return dataRozpoczeciaPracy;
+    }
+
+    public void setDataRozpoczeciaPracy(Date dataRozpoczeciaPracy) {
+        this.dataRozpoczeciaPracy = dataRozpoczeciaPracy;
+    }
+    
+    
 
     @Override
     public boolean equals(Object obj) {
@@ -119,29 +126,36 @@ public class Pracownik1 implements Serializable {
             return false;
         }
         final Pracownik1 other = (Pracownik1) obj;
-        if (Float.floatToIntBits(this.cena) != Float.floatToIntBits(other.cena)) {
+        if (this.pensja != other.pensja) {
             return false;
         }
-        if (this.promocja != other.promocja) {
+        if (!Objects.equals(this.imie, other.nazwisko)) {
             return false;
         }
-        if (!Objects.equals(this.nazwa, other.nazwa)) {
+        if (!Objects.equals(this.nazwisko, other.nazwisko)) {
             return false;
         }
-        if (!Objects.equals(this.producent, other.producent)) {
+        if (!Objects.equals(this.numerTelefonu, other.numerTelefonu)) {
+            return false;
+        }
+        if (!Objects.equals(this.adres, other.adres)) {
+            return false;
+        }
+        if (!Objects.equals(this.miasto, other.miasto)) {
+            return false;
+        }
+        if (!Objects.equals(this.stanowisko, other.stanowisko)) {
+            return false;
+        }
+        if (!Objects.equals(this.dataRozpoczeciaPracy, other.dataRozpoczeciaPracy)) {
             return false;
         }
         return true;
     }
-
    
     @Override
     public String toString() {
         return "warstwa_biznesowa.entity.Pracownik1[ id=" + id + " ]";
-    }
-
-    public float cena_brutto() {
-      return  cena * (1 - (float) promocja / 100);
     }
 
 }
