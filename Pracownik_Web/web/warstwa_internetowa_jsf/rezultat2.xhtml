@@ -18,35 +18,25 @@
                     <h:outputText escape="false" value="#{bundle['rezultat2.nie_dodano']}" 
                                   rendered="#{managed_pracownik.stan==0}"/>         
                     <h:panelGrid columns="2" rendered="#{managed_pracownik.stan!=0}">            
-                        <h:outputLabel value="#{bundle['lista_pracownikow.nazwa']}"  for="nazwa" />
-                        <h:outputText id="nazwa" value="#{managed_pracownik.nazwa}"/>
-                        <h:outputLabel value="#{bundle['lista_pracownikow.cena']}"  for="cena" />
-                        <h:outputText id="cena" value="#{managed_pracownik.cena}" >
+                        <h:outputLabel value="#{bundle['lista_pracownikow.imie']}"  for="imie" />
+                        <h:outputText id="imie" value="#{managed_pracownik.imie}"/>
+                        <h:outputLabel value="#{bundle['lista_pracownikow.nazwisko']}"  for="nazwisko" />
+                        <h:outputText id="nazwisko" value="#{managed_pracownik.nazwisko}"/>
+                        <h:outputLabel value="#{bundle['lista_pracownikow.numerTelefonu']}"  for="numerTelefonu" />
+                        <h:outputText id="numerTelefonu" value="#{managed_pracownik.numerTelefonu}"/>
+                        <h:outputLabel value="#{bundle['lista_pracownikow.adres']}"  for="adres" />
+                        <h:outputText id="adres" value="#{managed_pracownik.adres}"/>
+                        <h:outputLabel value="#{bundle['lista_pracownikow.miasto']}"  for="miasto" />
+                        <h:outputText id="miasto" value="#{managed_pracownik.miasto}"/>
+                        <h:outputLabel value="#{bundle['lista_pracownikow.stanowisko']}"  for="stanowisko" />
+                        <h:outputText id="stanowisko" value="#{managed_pracownik.stanowisko}"/>
+                        <h:outputLabel value="#{bundle['lista_pracownikow.pensja']}"  for="pensja" />
+                        <h:outputText id="pensja" value="#{managed_pracownik.pensja}" >
                            <f:convertNumber  binding="#{managed_pracownik.number_convert}" 
                                      pattern="####.### z&#322;"/>
                         </h:outputText>
-                        <h:outputLabel value="#{bundle['lista_pracownikow.promocja']}"  for="promocja" />
-                        <h:outputText id="promocja" value="#{managed_pracownik.promocja}">
-                              <f:convertNumber currencySymbol="%" type="currency"/>
-                        </h:outputText>
-                        <h:outputLabel value="#{bundle['lista_pracownikow.data']}" for="data"/>         
-                        <h:outputText id="data" value="#{managed_pracownik.data_produkcji}">
-                                        <f:convertDateTime dateStyle="full"
-                                            timeStyle="long" type="both"/> 
-                        </h:outputText>
-                        <h:outputLabel value="#{bundle['lista_pracownikow.cena_brutto']}"  for="brutto" />
-                        <h:outputText id="brutto" value="#{managed_pracownik.cena_brutto}" >
-                           <f:convertNumber currencySymbol="z&#322;" type="currency"/> 
-                        </h:outputText>
-                        
-                        <h:outputLabel value="#{bundle['lista_pracownikow.ilosc']}"  for="ilosc" />
-                        <h:outputText id="ilosc" value="#{managed_pracownik.ilosc}" />
-                        
-                        <h:outputLabel value="#{bundle['lista_pracownikow.producent']}"  for="producent" />
-                        <h:outputText id="producent" value="#{managed_pracownik.producent}"/>
-                        
-                        <h:outputLabel value="#{bundle['lista_pracownikow.data_przydatnosci']}" for="data_przydatnosci"/>         
-                        <h:outputText id="data_przydatnosci" value="#{managed_pracownik.data_przydatnosci}">
+                        <h:outputLabel value="#{bundle['lista_pracownikow.dataRozpoczeciaPracy']}" for="dataRozpoczeciaPracy"/>         
+                        <h:outputText id="data" value="#{managed_pracownik.dataRozpoczeciaPracy}">
                                         <f:convertDateTime dateStyle="full"
                                             timeStyle="long" type="both"/> 
                         </h:outputText>
