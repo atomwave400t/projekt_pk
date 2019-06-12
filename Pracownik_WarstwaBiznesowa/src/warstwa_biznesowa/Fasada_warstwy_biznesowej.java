@@ -28,14 +28,14 @@ public class Fasada_warstwy_biznesowej {
     public Pracownik_dto pracownik_transfer(Pracownik1 pracownik) {
         Pracownik_dto pom = new Pracownik_dto();
         pom.setId(pracownik.getId_());
-        pom.setNazwa(pracownik.getNazwa());
-        pom.setCena(pracownik.getCena());
-        pom.setPromocja(pracownik.getPromocja());
-        pom.setData_produkcji(pracownik.getData_produkcji());
-        pom.setCena_brutto(pracownik.cena_brutto());
-        pom.setData_przydatnosci(pracownik.getData_przydatnosci());
-        pom.setProducent(pracownik.getProducent());
-        pom.setIlosc(pracownik.getIlosc());
+        pom.setImie(pracownik.getImie());
+        pom.setNazwisko(pracownik.getNazwisko());
+        pom.setNumerTelefonu(pracownik.getNumerTelefonu());
+        pom.setAdres(pracownik.getAdres());
+        pom.setMiasto(pracownik.getMiasto());
+        pom.setStanowisko(pracownik.getStanowisko());
+        pom.setPensja(pracownik.getPensja());
+        pom.setDataRozpoczeciaPracy(pracownik.getDataRozpoczeciaPracy());
         return pom;
     }
     
@@ -68,18 +68,20 @@ public class Fasada_warstwy_biznesowej {
         for (Pracownik1 p : pracownicy) {
             ArrayList<String> wiersz = new ArrayList();
             wiersz.add(p.getId_().toString());
-            wiersz.add(p.getNazwa());
-            wiersz.add("" + p.getCena());
-            wiersz.add("" + p.getPromocja());
-            wiersz.add(p.getData_produkcji().toString());
-            wiersz.add("" + p.cena_brutto());
-            wiersz.add(p.getData_przydatnosci().toString());
-            wiersz.add("" + p.getProducent());
-            wiersz.add("" + p.getIlosc());
+            wiersz.add(p.getImie());
+            wiersz.add(p.getNazwisko());
+            wiersz.add(p.getNumerTelefonu());
+            wiersz.add(p.getAdres());
+            wiersz.add(p.getMiasto());
+            wiersz.add(p.getStanowisko());
+            wiersz.add("" + p.getPensja());
+            wiersz.add(p.getDataRozpoczeciaPracy().toString());
             dane.add(wiersz);
         }
         return dane;
     }
+    
+    
     
     public boolean isStan() {
         return stan;
@@ -122,11 +124,17 @@ public class Fasada_warstwy_biznesowej {
         {
             return false;}
         Pracownik1 p = getPracownicy().get(idx1);
-        p.setCena(o_update.getCena());
-        p.setData_produkcji(o_update.getData_produkcji());
-        p.setPromocja(o_update.getPromocja());
+        p.setImie(o_update.getImie());
+        p.setNazwisko(o_update.getNazwisko());
+        p.setNumerTelefonu(o_update.getNumerTelefonu());
+        p.setAdres(o_update.getAdres());
+        p.setMiasto(o_update.getMiasto());
+        p.setStanowisko(o_update.getStanowisko());
+        p.setPensja(o_update.getPensja());
+        p.setDataRozpoczeciaPracy(o_update.getDataRozpoczeciaPracy());
         return true;
     }
+    
     void max_klucz() {
         long max = 0;
         for (Pracownik1 p : pracownicy)
@@ -138,13 +146,14 @@ public class Fasada_warstwy_biznesowej {
         Pracownik1 pracownik = new Pracownik1();
         max_klucz();
         pracownik.setId(new Long(klucz));
-        pracownik.setNazwa(pracownik_dto.getNazwa());
-        pracownik.setCena(pracownik_dto.getCena());
-        pracownik.setPromocja(pracownik_dto.getPromocja());
-        pracownik.setData_produkcji(pracownik_dto.getData_produkcji());
-        pracownik.setData_przydatnosci(pracownik_dto.getData_przydatnosci());
-        pracownik.setProducent(pracownik_dto.getProducent());
-        pracownik.setIlosc(pracownik_dto.getIlosc());
+        pracownik.setImie(pracownik_dto.getImie());
+        pracownik.setNazwisko(pracownik_dto.getNazwisko());
+        pracownik.setNumerTelefonu(pracownik_dto.getNumerTelefonu());
+        pracownik.setAdres(pracownik_dto.getAdres());
+        pracownik.setMiasto(pracownik_dto.getMiasto());
+        pracownik.setStanowisko(pracownik_dto.getStanowisko());
+        pracownik.setPensja(pracownik_dto.getPensja());
+        pracownik.setDataRozpoczeciaPracy(pracownik_dto.getDataRozpoczeciaPracy());
         return pracownik;
     }
 
