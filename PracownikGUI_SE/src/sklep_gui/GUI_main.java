@@ -36,8 +36,8 @@ public class GUI_main implements ActionListener {
     static Pracownicy_form card2 = new Pracownicy_form();
 
     final static String PUSTY = "Pusty";
-    final static String PRODUKT = "Pracownik form";
-    final static String PRODUKTY = "Pracownicy form";
+    final static String PRACOWNIK = "Pracownik form";
+    final static String PRACOWNICY = "Pracownicy form";
 
     
     static Fasada_warstwy_biznesowej facade = new Fasada_warstwy_biznesowej();	//obiekt z warstwy biznesowej
@@ -57,13 +57,13 @@ public class GUI_main implements ActionListener {
         menu.setMnemonic(KeyEvent.VK_A);			//mozliwosc wyboru pozycji menu za pomocą klawiszy Alt-A
         menuBar.add(menu);		 		//dodanie pozycji menu do obiektu typu JMenuBar
 
-        menuItem = new JMenuItem(PRODUKT, KeyEvent.VK_P);	//możliwosc wyboru opcji za pomocą klawiszy Alt-P
+        menuItem = new JMenuItem(PRACOWNIK, KeyEvent.VK_P);	//możliwosc wyboru opcji za pomocą klawiszy Alt-P
         menuItem.setAccelerator(KeyStroke.getKeyStroke(
                 KeyEvent.VK_1, ActionEvent.ALT_MASK)); 	//możliwosc wyboru opcji za pomocą klawiszy Alt-1	
         menuItem.addActionListener(this);			// dodanie obsługi zdarzenia kliknięcia na pozycję JMenuItem
         menu.add(menuItem);				//dodanie pozycji menu do obiektu typu JMenu
 
-        menuItem = new JMenuItem(PRODUKTY);
+        menuItem = new JMenuItem(PRACOWNICY);
         menuItem.setMnemonic(KeyEvent.VK_R);    //możliwość wyboru opcji za pomocą klawiszy Alt-R – zamiast w konstruktorze JMenuItem
         menuItem.addActionListener(this);			// dodanie obsługi zdarzenia kliknięcia na pozycję JMenuItem
         menu.add(menuItem);				//dodanie pozycji menu do obiektu typu JMenu
@@ -106,8 +106,8 @@ public class GUI_main implements ActionListener {
         //wykonanie panelu cards do przechowania paneli typu Pracownik_form, Pracownicy_form oraz Pusty_form
         cards = new JPanel(new CardLayout());
         cards.add(card0, PUSTY);		//dodanie panelu typu Pusty_form
-        cards.add(card1, PRODUKT);		// dodanie panelu typu Pracownik_form
-        cards.add(card2, PRODUKTY);	// dodanie panelu typu Pracownicy_form
+        cards.add(card1, PRACOWNIK);		// dodanie panelu typu Pracownik_form
+        cards.add(card2, PRACOWNICY);	// dodanie panelu typu Pracownicy_form
 
         JPanel p1 = new JPanel();		//utworzenie glownego panela aplikacji
         p1.add(cards, BorderLayout.CENTER);	//dodanie do glownego panelu zbioru cards innych paneli
@@ -117,7 +117,7 @@ public class GUI_main implements ActionListener {
     public static void updatePracownicy_form() {
         card2.table_content();		//wywołanie metody table_content panelu typu Pracownicy_form
         //do pobrania aktualnych danych o pracownikach z klasy Fasada_warstwy_biznesowej
-        cl.show(cards, PRODUKTY);	//wyswietlenie panelu do wyswietlenia danych pracownikow
+        cl.show(cards, PRACOWNICY);	//wyswietlenie panelu do wyswietlenia danych pracownikow
 
     }
 
@@ -128,10 +128,10 @@ public class GUI_main implements ActionListener {
         //   CardLayout cl = (CardLayout) (cards.getLayout());
         cl = (CardLayout) (cards.getLayout());
         switch (source.getText()) {
-            case PRODUKT:
-                cl.show(cards, PRODUKT);  		//wyswietlenie panelu do wprowadzania danych pracownika
+            case PRACOWNIK:
+                cl.show(cards, PRACOWNIK);  		//wyswietlenie panelu do wprowadzania danych pracownika
                 break;
-            case PRODUKTY:
+            case PRACOWNICY:
                 updatePracownicy_form(); 		//wyswietlenie panelu do  prezentacji danych pracownikow
                 break;
             case PUSTY:
