@@ -129,7 +129,7 @@ public class Pracownik1 implements Serializable {
         if (this.pensja != other.pensja) {
             return false;
         }
-        if (!Objects.equals(this.imie, other.nazwisko)) {
+        if (Float.floatToIntBits(this.pensja) != Float.floatToIntBits(other.pensja)) {
             return false;
         }
         if (!Objects.equals(this.nazwisko, other.nazwisko)) {
