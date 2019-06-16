@@ -129,6 +129,9 @@ public class Pracownik1 implements Serializable {
         if (Float.floatToIntBits(this.pensja) != Float.floatToIntBits(other.pensja)) {
             return false;
         }
+        if (!Objects.equals(this.imie, other.imie)) {
+            return false;
+        }
         if (!Objects.equals(this.nazwisko, other.nazwisko)) {
             return false;
         }
