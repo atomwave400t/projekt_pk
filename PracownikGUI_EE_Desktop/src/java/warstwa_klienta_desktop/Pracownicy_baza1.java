@@ -10,9 +10,12 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
@@ -41,7 +44,57 @@ public class Pracownicy_baza1 extends JPanel {
         JLabel lpracownicy = new JLabel("Pracownicy");
         add(lpracownicy);
         lista_pracownikow = new JComboBox();
+        JLabel akcja = new JLabel("Akcja do wykonania:");
+        ButtonGroup akcjaGroup = new ButtonGroup();
+        
+        //radio buttony odpowiadajace za wybor akcji:
+        JRadioButton usun = new JRadioButton("usuń");
+        JRadioButton modyfikuj = new JRadioButton("modyfikuj");
+        JRadioButton wyszukaj = new JRadioButton("wyszukaj");
+        
+        //radio buttony odpowiadajace za wybor kryterium:
+        JLabel kryterium = new JLabel("Kryterium:");
+        ButtonGroup kryteriumGroup = new ButtonGroup();
+        
+        JRadioButton imie = new JRadioButton("imię");
+        JRadioButton nazwisko = new JRadioButton("nazwisko");
+        JRadioButton numerTelefonu = new JRadioButton("nr. telefonu");
+        JRadioButton adres = new JRadioButton("adres");
+        JRadioButton miasto = new JRadioButton("miasto");
+        JRadioButton stanowisko = new JRadioButton("stanowisko");
+        JRadioButton pensja = new JRadioButton("pensja");
+        JRadioButton dataRozpoczeciaPracy = new JRadioButton("data rozp. pracy");
+        
         add(lista_pracownikow);
+        
+        add(akcja);
+        akcjaGroup.add(usun);
+        akcjaGroup.add(modyfikuj);
+        akcjaGroup.add(wyszukaj);
+        
+        add(usun);
+        add(modyfikuj);
+        add(wyszukaj);
+        
+        add(kryterium);
+        kryteriumGroup.add(imie);
+        kryteriumGroup.add(nazwisko);
+        kryteriumGroup.add(numerTelefonu);
+        kryteriumGroup.add(adres);
+        kryteriumGroup.add(miasto);
+        kryteriumGroup.add(stanowisko);
+        kryteriumGroup.add(pensja);
+        kryteriumGroup.add(dataRozpoczeciaPracy);
+        
+        add(imie);
+        add(nazwisko);
+        add(numerTelefonu);
+        add(adres);
+        add(miasto);
+        add(stanowisko);
+        add(pensja);
+        add(dataRozpoczeciaPracy);
+        
     }
 
     void table_content() {				//wypelnienie tablicy typu JTable danymi pracownikow
