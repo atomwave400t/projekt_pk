@@ -126,9 +126,6 @@ public class Pracownik1 implements Serializable {
             return false;
         }
         final Pracownik1 other = (Pracownik1) obj;
-        if (this.pensja != other.pensja) {
-            return false;
-        }
         if (Float.floatToIntBits(this.pensja) != Float.floatToIntBits(other.pensja)) {
             return false;
         }
