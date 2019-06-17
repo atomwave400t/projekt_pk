@@ -42,9 +42,18 @@
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
+                                    <h:inputText
+                                        id="nazwisko_filtr"
+                                        title="nazwisko_filtr"
+                                        value="#{managed_pracownik.nazwisko_filter}">
+                                         <f:ajax event="keydown"
+                                                 execute="nazwisko_filtr"
+                                                 render="nazwisko_filtered"
+                                                 onevent="keydown" />
+                                    </h:inputText>
                                     <h:outputText value="#{bundle['lista_pracownikow.nazwisko']}"/>
                                 </f:facet>
-                                <h:outputText value="#{item.nazwisko}"/>
+                                <h:outputText id="nazwisko_filtered" value="#{item.nazwisko}"/>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">

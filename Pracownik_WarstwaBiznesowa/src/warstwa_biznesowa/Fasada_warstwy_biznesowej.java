@@ -163,8 +163,16 @@ public class Fasada_warstwy_biznesowej {
         Pracownik1 pracownik = wykonaj_pracownik(p);
         getPracownicy().remove(pracownik);
     }
-    
-    public void remove(Pracownik_dto p, String imie) {
+    ArrayList<Pracownik1> pracownicy_filtered = new ArrayList();
+
+    public ArrayList<Pracownik1> getPracownicy_filtered() {
+        return pracownicy_filtered;
+    }
+
+    public void setPracownicy_filtered(ArrayList<Pracownik1> pracownicy_filtered) {
+        this.pracownicy_filtered = pracownicy_filtered;
+    }
+    public void remove(Pracownik_dto p, String imie, String nazwisko) {
 //        for (Pracownik1 prac : getPracownicy()) {
 //            //Pracownik1 pracownik = wykonaj_pracownik(p);
 //            if("Jan".equals(prac.getImie())) {
@@ -172,13 +180,43 @@ public class Fasada_warstwy_biznesowej {
 //                //break;
 //            }
 //        }
-        for (int i = 0; i < getPracownicy().size(); i++) {
-            if(imie.equals(getPracownicy().get(i).getImie())) {
-                getPracownicy().remove(getPracownicy().get(i));
+        pracownicy_filtered = getPracownicy();
+        for (int i = 0; i < getPracownicy_filtered().size(); i++) {
+            if(!imie.equals(getPracownicy_filtered().get(i).getImie())) {
+                //getPracownicy_filtered().add(getPracownicy().get(i));
+                getPracownicy_filtered().remove(getPracownicy_filtered().get(i));
                 //break;
                 i=0;
             }
         }
+//        for (int i = 0; i < getPracownicy_filtered().size(); i++) {
+//            if(!nazwisko.equals(getPracownicy_filtered().get(i).getNazwisko())) {
+//                //getPracownicy_filtered().add(getPracownicy().get(i));
+//                getPracownicy_filtered().remove(getPracownicy_filtered().get(i));
+//                //break;
+//                //i=0;
+//            }
+//        }
+        // czyszczenie z imion
+//        if(!nazwisko.equals("")){
+//            for (int i = 0; i < getPracownicy_filtered().size(); i++) {
+//                if(nazwisko.equals(getPracownicy_filtered().get(i).getNazwisko())){
+//                    getPracownicy_filtered().remove(getPracownicy_filtered().get(i));
+//                }
+//            }
+//        }
+        
+        // czyszczenie pierwotnej tablicy na podstawie pracownicy_filtered
+        for (int j = 0; j < getPracownicy_filtered().size(); j++) {
+                //if(pracownicy_filtered.get(j).getImie().equals(getPracownicy().get(i).getImie())){
+                getPracownicy().remove(getPracownicy_filtered().get(j));
+                //}
+        }
+//        for(Pracownik1 pracownik_filtered : pracownicy_filtered){
+//            getPracownicy().remove(getPracownicy_filtered());
+//        }
+        
+        
     }
 
     public void pracownicy_z_bazy_danych (List<Pracownik1> pracownicy_)
