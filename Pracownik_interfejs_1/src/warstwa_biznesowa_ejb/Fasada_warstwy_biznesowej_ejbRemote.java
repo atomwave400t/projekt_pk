@@ -24,7 +24,7 @@ public interface Fasada_warstwy_biznesowej_ejbRemote {
     public boolean isStan();
     public void setStan(boolean stan);
     public boolean edit(Pracownik_dto o_przed, Pracownik_dto o_update);
-    public void remove(Pracownik_dto p);
+    public void remove(Pracownik_dto p, String imie);
     public void zapisz();
     public void pobierz();
 }

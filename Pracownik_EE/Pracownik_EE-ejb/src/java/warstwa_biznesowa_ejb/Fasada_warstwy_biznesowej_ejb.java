@@ -63,8 +63,8 @@ public class Fasada_warstwy_biznesowej_ejb implements Fasada_warstwy_biznesowej_
         return fasada.edit(o_przed, o_update);
     }
     
-    public void remove(Pracownik_dto p) {
-        fasada.remove(p);
+    public void remove(Pracownik_dto p, String imie) {
+        fasada.remove(p,imie);
     }
     
     public void pobierz() {
@@ -87,6 +87,10 @@ public class Fasada_warstwy_biznesowej_ejb implements Fasada_warstwy_biznesowej_
             pobierz();
         } catch (Exception e) {
         }
+    }
+
+    public void remove(Pracownik_dto p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

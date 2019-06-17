@@ -14,8 +14,9 @@
             <ui:define name="content">
                 <h:form styleClass="jsfcrud_list_form">
                     <h:panelGroup rendered="#{managed_pracownik.items.rowCount > 0}">
-                        <h:dataTable value="#{managed_pracownik.items}" var="item" border="0" 
+                        <h:dataTable value="#{managed_pracownik.items}" var="item" border="0"
                                      cellpadding="2" cellspacing="0" 
+                                      
                                      rowClasses="jsfcrud_odd_row,jsfcrud_even_row" 
                                      rules="all" style="border:solid 1px">
                             <h:column>
@@ -26,9 +27,18 @@
                             </h:column> 
                             <h:column>
                                 <f:facet name="header">
+                                    <h:inputText
+                                        id="imie_filtr"
+                                        title="imie_filtr"
+                                        value="#{managed_pracownik.imie_filter}">
+                                         <f:ajax event="keydown"
+                                                 execute="imie_filtr"
+                                                 render="imie_filtered"
+                                                 onevent="keydown" />
+                                    </h:inputText>
                                     <h:outputText value="#{bundle['lista_pracownikow.imie']}"/>
                                 </f:facet>
-                                <h:outputText value="#{item.imie}"/>
+                                <h:outputText id="imie_filtered" value="#{item.imie}"/>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">

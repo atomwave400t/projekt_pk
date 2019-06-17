@@ -20,7 +20,6 @@ public class Fasada_warstwy_biznesowej {
     }
     public void utworz_pracownika(Pracownik_dto pracownik_dto) {
         Pracownik1 pracownik = wykonaj_pracownik(pracownik_dto);
-
         dodaj_pracownik(pracownik);
     }
     
@@ -62,6 +61,8 @@ public class Fasada_warstwy_biznesowej {
             dane.add(pracownik_transfer(pracownik));
         return dane;
     }
+    
+    
 
     public ArrayList<ArrayList<String>> items() {
         ArrayList<ArrayList<String>> dane = new ArrayList();
@@ -122,7 +123,8 @@ public class Fasada_warstwy_biznesowej {
         idx2=this.istnieje_pracownik(o_update);
         if(idx2!=-1) //nie mozna modyfikowac, bo już taki pracownik istnieje
         {
-            return false;}
+            return false;
+        }
         Pracownik1 p = getPracownicy().get(idx1);
         p.setImie(o_update.getImie());
         p.setNazwisko(o_update.getNazwisko());
@@ -157,9 +159,26 @@ public class Fasada_warstwy_biznesowej {
         return pracownik;
     }
 
-    public void remove(Pracownik_dto p) {
+    public void removeBy(Pracownik_dto p) {
         Pracownik1 pracownik = wykonaj_pracownik(p);
         getPracownicy().remove(pracownik);
+    }
+    
+    public void remove(Pracownik_dto p, String imie) {
+//        for (Pracownik1 prac : getPracownicy()) {
+//            //Pracownik1 pracownik = wykonaj_pracownik(p);
+//            if("Jan".equals(prac.getImie())) {
+//                getPracownicy().remove(prac);
+//                //break;
+//            }
+//        }
+        for (int i = 0; i < getPracownicy().size(); i++) {
+            if(imie.equals(getPracownicy().get(i).getImie())) {
+                getPracownicy().remove(getPracownicy().get(i));
+                //break;
+                i=0;
+            }
+        }
     }
 
     public void pracownicy_z_bazy_danych (List<Pracownik1> pracownicy_)
