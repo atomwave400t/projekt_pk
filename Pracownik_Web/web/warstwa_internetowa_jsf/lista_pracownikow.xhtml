@@ -34,7 +34,7 @@
                                          <f:ajax event="keydown"
                                                  execute="imie_filtr"
                                                  render="imie_filtered"
-                                                 onevent="keydown" />
+                                                 onevent="keydown"/>
                                     </h:inputText>
                                     <h:outputText value="#{bundle['lista_pracownikow.imie']}"/>
                                 </f:facet>
@@ -49,7 +49,7 @@
                                          <f:ajax event="keydown"
                                                  execute="nazwisko_filtr"
                                                  render="nazwisko_filtered"
-                                                 onevent="keydown" />
+                                                 onevent="keydown"/>
                                     </h:inputText>
                                     <h:outputText value="#{bundle['lista_pracownikow.nazwisko']}"/>
                                 </f:facet>
@@ -57,41 +57,87 @@
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
+                                    <h:inputText
+                                        id="numerTelefonu_filtr"
+                                        title="numerTelefonu_filtr"
+                                        value="#{managed_pracownik.numerTelefonu_filter}">
+                                         <f:ajax event="keydown"
+                                                 execute="numerTelefonu_filtr"
+                                                 render="numerTelefonu_filtered"
+                                                 onevent="keydown"/>
+                                    </h:inputText>
                                     <h:outputText value="#{bundle['lista_pracownikow.numerTelefonu']}"/>
                                 </f:facet>
-                                <h:outputText value="#{item.numerTelefonu}"/>
+                                <h:outputText id="numerTelefonu_filtered" value="#{item.numerTelefonu}"/>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
+                                    <h:inputText
+                                        id="adres_filtr"
+                                        title="adres_filtr"
+                                        value="#{managed_pracownik.adres_filter}">
+                                         <f:ajax event="keydown"
+                                                 execute="adres_filtr"
+                                                 render="adres_filtered"
+                                                 onevent="keydown"/>
+                                    </h:inputText>
                                     <h:outputText value="#{bundle['lista_pracownikow.adres']}"/>
                                 </f:facet>
-                                <h:outputText value="#{item.adres}"/>
+                                <h:outputText id="adres_filtered" value="#{item.adres}"/>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
+                                    <h:inputText
+                                        id="miasto_filtr"
+                                        title="miasto_filtr"
+                                        value="#{managed_pracownik.miasto_filter}">
+                                         <f:ajax event="keydown"
+                                                 execute="miasto_filtr"
+                                                 render="miasto_filtered"
+                                                 onevent="keydown"/>
+                                    </h:inputText>
                                     <h:outputText value="#{bundle['lista_pracownikow.miasto']}"/>
                                 </f:facet>
-                                <h:outputText value="#{item.miasto}"/>
+                                <h:outputText id="miasto_filtered" value="#{item.miasto}"/>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
+                                    <h:inputText
+                                        id="stanowisko_filtr"
+                                        title="stanowisko_filtr"
+                                        value="#{managed_pracownik.stanowisko_filter}">
+                                         <f:ajax event="keydown"
+                                                 execute="stanowisko_filtr"
+                                                 render="stanowisko_filtered"
+                                                 onevent="keydown"/>
+                                    </h:inputText>
                                     <h:outputText value="#{bundle['lista_pracownikow.stanowisko']}"/>
                                 </f:facet>
-                                <h:outputText value="#{item.stanowisko}"/>
+                                <h:outputText id="stanowisko_filtered" value="#{item.stanowisko}"/>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
                                     <h:outputText value="#{bundle['lista_pracownikow.pensja']}"/>
                                 </f:facet>
-                                <h:outputText value="#{item.pensja}">
+                                <h:outputText id="pensja_filtered" value="#{item.pensja}">
                                     <f:convertNumber pattern="####.## z&#322;"/>
                                 </h:outputText>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
+                                    <h:inputText
+                                        id="dataRozpoczeciaPracy_filtr"
+                                        title="dataRozpoczeciaPracy_filtr"
+                                        value="#{managed_pracownik.dataRozpoczeciaPracy_filter}">
+                                         <f:ajax event="keydown"
+                                                 execute="dataRozpoczeciaPracy_filtr"
+                                                 render="dataRozpoczeciaPracy_filtered"
+                                                 onevent="keydown"/>
+                                         <f:convertDateTime pattern="dd-MM-yyyy" />
+                                    </h:inputText>
                                     <h:outputText value="#{bundle['lista_pracownikow.dataRozpoczeciaPracy']}"/>
                                 </f:facet>
-                                <h:outputText value="#{item.dataRozpoczeciaPracy}">
+                                <h:outputText id="dataRozpoczeciaPracy_filtered" value="#{item.dataRozpoczeciaPracy}">
                                     <f:convertDateTime pattern="EEEEEEEE, dd-MM-yyyy" />
                                 </h:outputText>
                             </h:column>

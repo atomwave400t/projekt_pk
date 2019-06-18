@@ -1,7 +1,9 @@
 package warstwa_biznesowa;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import warstwa_biznesowa.dto.Pracownik_dto;
 import warstwa_biznesowa.entity.Pracownik1;
 
@@ -172,48 +174,121 @@ public class Fasada_warstwy_biznesowej {
     public void setPracownicy_filtered(ArrayList<Pracownik1> pracownicy_filtered) {
         this.pracownicy_filtered = pracownicy_filtered;
     }
-    public void remove(Pracownik_dto p, String imie, String nazwisko) {
-//        for (Pracownik1 prac : getPracownicy()) {
-//            //Pracownik1 pracownik = wykonaj_pracownik(p);
-//            if("Jan".equals(prac.getImie())) {
-//                getPracownicy().remove(prac);
-//                //break;
-//            }
-//        }
-        pracownicy_filtered = getPracownicy();
-        for (int i = 0; i < getPracownicy_filtered().size(); i++) {
-            if(!imie.equals(getPracownicy_filtered().get(i).getImie())) {
-                //getPracownicy_filtered().add(getPracownicy().get(i));
-                getPracownicy_filtered().remove(getPracownicy_filtered().get(i));
-                //break;
+    public void remove(Pracownik_dto p, 
+            String imie, 
+            String nazwisko, 
+            String numerTelefonu, 
+            String adres, 
+            String miasto, 
+            String stanowisko,
+            String pensja,
+            Date dataRozpoczeciaPracy) {
+        //usuwanie po imieniu
+        for (int i = 0; i < getPracownicy().size(); i++) {
+            if(imie.equals(getPracownicy().get(i).getImie())) {
+                getPracownicy().remove(getPracownicy().get(i));
                 i=0;
             }
         }
-//        for (int i = 0; i < getPracownicy_filtered().size(); i++) {
-//            if(!nazwisko.equals(getPracownicy_filtered().get(i).getNazwisko())) {
-//                //getPracownicy_filtered().add(getPracownicy().get(i));
-//                getPracownicy_filtered().remove(getPracownicy_filtered().get(i));
-//                //break;
-//                //i=0;
-//            }
-//        }
-        // czyszczenie z imion
-//        if(!nazwisko.equals("")){
-//            for (int i = 0; i < getPracownicy_filtered().size(); i++) {
-//                if(nazwisko.equals(getPracownicy_filtered().get(i).getNazwisko())){
-//                    getPracownicy_filtered().remove(getPracownicy_filtered().get(i));
-//                }
-//            }
-//        }
-        
-        // czyszczenie pierwotnej tablicy na podstawie pracownicy_filtered
-        for (int j = 0; j < getPracownicy_filtered().size(); j++) {
-                //if(pracownicy_filtered.get(j).getImie().equals(getPracownicy().get(i).getImie())){
-                getPracownicy().remove(getPracownicy_filtered().get(j));
-                //}
+        //usuwanie po nazwisku
+        for (int i = 0; i < getPracownicy().size(); i++) {
+            if(nazwisko.equals(getPracownicy().get(i).getNazwisko())) {
+                getPracownicy().remove(getPracownicy().get(i));
+                i=0;
+            }
         }
-//        for(Pracownik1 pracownik_filtered : pracownicy_filtered){
-//            getPracownicy().remove(getPracownicy_filtered());
+        //usuwanie po numerze telefonu
+        for (int i = 0; i < getPracownicy().size(); i++) {
+            if(numerTelefonu.equals(getPracownicy().get(i).getNumerTelefonu())) {
+                getPracownicy().remove(getPracownicy().get(i));
+                i=0;
+            }
+        }
+        //usuwanie po adresie
+        for (int i = 0; i < getPracownicy().size(); i++) {
+            if(adres.equals(getPracownicy().get(i).getAdres())) {
+                getPracownicy().remove(getPracownicy().get(i));
+                i=0;
+            }
+        }
+        //usuwanie po miescie
+        for (int i = 0; i < getPracownicy().size(); i++) {
+            if(miasto.equals(getPracownicy().get(i).getMiasto())) {
+                getPracownicy().remove(getPracownicy().get(i));
+                i=0;
+            }
+        }
+        //usuwanie po stanowisku
+        for (int i = 0; i < getPracownicy().size(); i++) {
+            if(stanowisko.equals(getPracownicy().get(i).getStanowisko())) {
+                getPracownicy().remove(getPracownicy().get(i));
+                i=0;
+            }
+        }
+        //usuwanie po pensji
+//        for (int i = 0; i < getPracownicy().size(); i++) {
+////            if(Float.floatToIntBits(pensja) == Float.floatToIntBits(getPracownicy().get(i).getPensja())) {
+//            if(pensja.equals(""+getPracownicy().get(i).getPensja())){
+//                getPracownicy().remove(getPracownicy().get(i));
+//                i=0;
+//            }
+//        }
+        //usuwanie po dacie
+        for (int i = 0; i < getPracownicy().size(); i++) {
+//            if(dataRozpoczeciaPracy.equals(getPracownicy().get(i).getDataRozpoczeciaPracy())) {
+            if(dataRozpoczeciaPracy.compareTo(getPracownicy().get(i).getDataRozpoczeciaPracy()) == 0) {
+                getPracownicy().remove(getPracownicy().get(i));
+                i=0;
+            }
+        }
+//        //usuwanie po nazwisku
+//        for (int i = 0; i < getPracownicy().size(); i++) {
+//            if(nazwisko.equals(getPracownicy().get(i).getNazwisko())) {
+//                getPracownicy().remove(getPracownicy().get(i));
+//                i=0;
+//            }
+//        }
+//        //usuwanie po numerze telefonu
+//        for (int i = 0; i < getPracownicy().size(); i++) {
+//            if(numerTelefonu.equals(getPracownicy().get(i).getNumerTelefonu())) {
+//                getPracownicy().remove(getPracownicy().get(i));
+//                i=0;
+//            }
+//        }
+//        //usuwanie po adresie
+//        for (int i = 0; i < getPracownicy().size(); i++) {
+//            if(adres.equals(getPracownicy().get(i).getAdres())) {
+//                getPracownicy().remove(getPracownicy().get(i));
+//                i=0;
+//            }
+//        }
+//        //usuwanie po miescie
+//        for (int i = 0; i < getPracownicy().size(); i++) {
+//            if(miasto.equals(getPracownicy().get(i).getMiasto())) {
+//                getPracownicy().remove(getPracownicy().get(i));
+//                i=0;
+//            }
+//        }
+//        //usuwanie po stanowisku
+//        for (int i = 0; i < getPracownicy().size(); i++) {
+//            if(stanowisko.equals(getPracownicy().get(i).getStanowisko())) {
+//                getPracownicy().remove(getPracownicy().get(i));
+//                i=0;
+//            }
+//        }
+//        //usuwanie po pensji
+//        for (int i = 0; i < getPracownicy().size(); i++) {
+//            if(Float.floatToIntBits(pensja) == Float.floatToIntBits(getPracownicy().get(i).getPensja())) {
+//                getPracownicy().remove(getPracownicy().get(i));
+//                i=0;
+//            }
+//        }
+        //usuwanie po dacie
+//        for (int i = 0; i < getPracownicy().size(); i++) {
+//            if(dataRozpoczeciaPracy.equals(getPracownicy().get(i).getDataRozpoczeciaPracy())) {
+//                getPracownicy().remove(getPracownicy().get(i));
+//                i=0;
+//            }
 //        }
         
         
