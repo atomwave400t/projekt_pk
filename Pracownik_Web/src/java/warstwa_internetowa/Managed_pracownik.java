@@ -59,7 +59,7 @@ public class Managed_pracownik implements ActionListener, Serializable{
     private String adres_filter;
     private String miasto_filter;
     private String stanowisko_filter;
-    private String pensja_filter;
+    private float pensja_filter;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date dataRozpoczeciaPracy_filter;
 
@@ -120,11 +120,11 @@ public class Managed_pracownik implements ActionListener, Serializable{
         this.stanowisko_filter = stanowisko_filter;
     }
 
-    public String getPensja_filter() {
+    public float getPensja_filter() {
         return pensja_filter;
     }
 
-    public void setPensja_filter(String pensja_filter) {
+    public void setPensja_filter(float pensja_filter) {
         this.pensja_filter = pensja_filter;
     }
 

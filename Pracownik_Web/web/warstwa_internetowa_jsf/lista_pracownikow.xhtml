@@ -117,6 +117,16 @@
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
+                                    <h:inputText
+                                        id="pensja_filtr"
+                                        title="pensja_filtr"
+                                        value="#{managed_pracownik.pensja_filter}"
+                                        converter="#{managed_pracownik.number_convert}">
+                                         <f:ajax event="keydown"
+                                                 execute="pensja_filtr"
+                                                 render="pensja_filtered"
+                                                 onevent="keydown"/>
+                                    </h:inputText>
                                     <h:outputText value="#{bundle['lista_pracownikow.pensja']}"/>
                                 </f:facet>
                                 <h:outputText id="pensja_filtered" value="#{item.pensja}">

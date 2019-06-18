@@ -64,7 +64,7 @@ public class Fasada_warstwy_biznesowej_ejb implements Fasada_warstwy_biznesowej_
         return fasada.edit(o_przed, o_update);
     }
     
-    public void remove(Pracownik_dto p, String imie, String nazwisko, String numerTelefonu, String adres, String miasto, String stanowisko, String pensja, Date dataRozpoczeciaPracy) {
+    public void remove(Pracownik_dto p, String imie, String nazwisko, String numerTelefonu, String adres, String miasto, String stanowisko, float pensja, Date dataRozpoczeciaPracy) {
         fasada.remove(p, imie, nazwisko, numerTelefonu, adres, miasto, stanowisko, pensja, dataRozpoczeciaPracy);
     }
     

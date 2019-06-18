@@ -181,7 +181,7 @@ public class Fasada_warstwy_biznesowej {
             String adres, 
             String miasto, 
             String stanowisko,
-            String pensja,
+            Float pensja,
             Date dataRozpoczeciaPracy) {
         //usuwanie po imieniu
         for (int i = 0; i < getPracownicy().size(); i++) {
@@ -226,13 +226,13 @@ public class Fasada_warstwy_biznesowej {
             }
         }
         //usuwanie po pensji
-//        for (int i = 0; i < getPracownicy().size(); i++) {
-////            if(Float.floatToIntBits(pensja) == Float.floatToIntBits(getPracownicy().get(i).getPensja())) {
-//            if(pensja.equals(""+getPracownicy().get(i).getPensja())){
-//                getPracownicy().remove(getPracownicy().get(i));
-//                i=0;
-//            }
-//        }
+        for (int i = 0; i < getPracownicy().size(); i++) {
+//            if(Float.floatToIntBits(pensja) == Float.floatToIntBits(getPracownicy().get(i).getPensja())) {
+            if(Float.compare(pensja,getPracownicy().get(i).getPensja()) == 0){
+                getPracownicy().remove(getPracownicy().get(i));
+                i=0;
+            }
+        }
         //usuwanie po dacie
         for (int i = 0; i < getPracownicy().size(); i++) {
 //            if(dataRozpoczeciaPracy.equals(getPracownicy().get(i).getDataRozpoczeciaPracy())) {
