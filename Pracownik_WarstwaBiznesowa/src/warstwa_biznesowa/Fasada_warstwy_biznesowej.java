@@ -1,7 +1,9 @@
 package warstwa_biznesowa;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import warstwa_biznesowa.dto.Pracownik_dto;
 import warstwa_biznesowa.entity.Pracownik1;
 
@@ -20,7 +22,6 @@ public class Fasada_warstwy_biznesowej {
     }
     public void utworz_pracownika(Pracownik_dto pracownik_dto) {
         Pracownik1 pracownik = wykonaj_pracownik(pracownik_dto);
-
         dodaj_pracownik(pracownik);
     }
     
@@ -62,6 +63,8 @@ public class Fasada_warstwy_biznesowej {
             dane.add(pracownik_transfer(pracownik));
         return dane;
     }
+    
+    
 
     public ArrayList<ArrayList<String>> items() {
         ArrayList<ArrayList<String>> dane = new ArrayList();
@@ -122,7 +125,8 @@ public class Fasada_warstwy_biznesowej {
         idx2=this.istnieje_pracownik(o_update);
         if(idx2!=-1) //nie mozna modyfikowac, bo już taki pracownik istnieje
         {
-            return false;}
+            return false;
+        }
         Pracownik1 p = getPracownicy().get(idx1);
         p.setImie(o_update.getImie());
         p.setNazwisko(o_update.getNazwisko());
@@ -157,9 +161,137 @@ public class Fasada_warstwy_biznesowej {
         return pracownik;
     }
 
-    public void remove(Pracownik_dto p) {
+    public void removeBy(Pracownik_dto p) {
         Pracownik1 pracownik = wykonaj_pracownik(p);
         getPracownicy().remove(pracownik);
+    }
+    ArrayList<Pracownik1> pracownicy_filtered = new ArrayList();
+
+    public ArrayList<Pracownik1> getPracownicy_filtered() {
+        return pracownicy_filtered;
+    }
+
+    public void setPracownicy_filtered(ArrayList<Pracownik1> pracownicy_filtered) {
+        this.pracownicy_filtered = pracownicy_filtered;
+    }
+    public void remove(Pracownik_dto p, 
+            String imie, 
+            String nazwisko, 
+            String numerTelefonu, 
+            String adres, 
+            String miasto, 
+            String stanowisko,
+            String pensja,
+            Date dataRozpoczeciaPracy) {
+        //usuwanie po imieniu
+        for (int i = 0; i < getPracownicy().size(); i++) {
+            if(imie.equals(getPracownicy().get(i).getImie())) {
+                getPracownicy().remove(getPracownicy().get(i));
+                i=0;
+            }
+        }
+        //usuwanie po nazwisku
+        for (int i = 0; i < getPracownicy().size(); i++) {
+            if(nazwisko.equals(getPracownicy().get(i).getNazwisko())) {
+                getPracownicy().remove(getPracownicy().get(i));
+                i=0;
+            }
+        }
+        //usuwanie po numerze telefonu
+        for (int i = 0; i < getPracownicy().size(); i++) {
+            if(numerTelefonu.equals(getPracownicy().get(i).getNumerTelefonu())) {
+                getPracownicy().remove(getPracownicy().get(i));
+                i=0;
+            }
+        }
+        //usuwanie po adresie
+        for (int i = 0; i < getPracownicy().size(); i++) {
+            if(adres.equals(getPracownicy().get(i).getAdres())) {
+                getPracownicy().remove(getPracownicy().get(i));
+                i=0;
+            }
+        }
+        //usuwanie po miescie
+        for (int i = 0; i < getPracownicy().size(); i++) {
+            if(miasto.equals(getPracownicy().get(i).getMiasto())) {
+                getPracownicy().remove(getPracownicy().get(i));
+                i=0;
+            }
+        }
+        //usuwanie po stanowisku
+        for (int i = 0; i < getPracownicy().size(); i++) {
+            if(stanowisko.equals(getPracownicy().get(i).getStanowisko())) {
+                getPracownicy().remove(getPracownicy().get(i));
+                i=0;
+            }
+        }
+        //usuwanie po pensji
+//        for (int i = 0; i < getPracownicy().size(); i++) {
+////            if(Float.floatToIntBits(pensja) == Float.floatToIntBits(getPracownicy().get(i).getPensja())) {
+//            if(pensja.equals(""+getPracownicy().get(i).getPensja())){
+//                getPracownicy().remove(getPracownicy().get(i));
+//                i=0;
+//            }
+//        }
+        //usuwanie po dacie
+        for (int i = 0; i < getPracownicy().size(); i++) {
+//            if(dataRozpoczeciaPracy.equals(getPracownicy().get(i).getDataRozpoczeciaPracy())) {
+            if(dataRozpoczeciaPracy.compareTo(getPracownicy().get(i).getDataRozpoczeciaPracy()) == 0) {
+                getPracownicy().remove(getPracownicy().get(i));
+                i=0;
+            }
+        }
+//        //usuwanie po nazwisku
+//        for (int i = 0; i < getPracownicy().size(); i++) {
+//            if(nazwisko.equals(getPracownicy().get(i).getNazwisko())) {
+//                getPracownicy().remove(getPracownicy().get(i));
+//                i=0;
+//            }
+//        }
+//        //usuwanie po numerze telefonu
+//        for (int i = 0; i < getPracownicy().size(); i++) {
+//            if(numerTelefonu.equals(getPracownicy().get(i).getNumerTelefonu())) {
+//                getPracownicy().remove(getPracownicy().get(i));
+//                i=0;
+//            }
+//        }
+//        //usuwanie po adresie
+//        for (int i = 0; i < getPracownicy().size(); i++) {
+//            if(adres.equals(getPracownicy().get(i).getAdres())) {
+//                getPracownicy().remove(getPracownicy().get(i));
+//                i=0;
+//            }
+//        }
+//        //usuwanie po miescie
+//        for (int i = 0; i < getPracownicy().size(); i++) {
+//            if(miasto.equals(getPracownicy().get(i).getMiasto())) {
+//                getPracownicy().remove(getPracownicy().get(i));
+//                i=0;
+//            }
+//        }
+//        //usuwanie po stanowisku
+//        for (int i = 0; i < getPracownicy().size(); i++) {
+//            if(stanowisko.equals(getPracownicy().get(i).getStanowisko())) {
+//                getPracownicy().remove(getPracownicy().get(i));
+//                i=0;
+//            }
+//        }
+//        //usuwanie po pensji
+//        for (int i = 0; i < getPracownicy().size(); i++) {
+//            if(Float.floatToIntBits(pensja) == Float.floatToIntBits(getPracownicy().get(i).getPensja())) {
+//                getPracownicy().remove(getPracownicy().get(i));
+//                i=0;
+//            }
+//        }
+        //usuwanie po dacie
+//        for (int i = 0; i < getPracownicy().size(); i++) {
+//            if(dataRozpoczeciaPracy.equals(getPracownicy().get(i).getDataRozpoczeciaPracy())) {
+//                getPracownicy().remove(getPracownicy().get(i));
+//                i=0;
+//            }
+//        }
+        
+        
     }
 
     public void pracownicy_z_bazy_danych (List<Pracownik1> pracownicy_)

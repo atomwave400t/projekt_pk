@@ -16,6 +16,7 @@ import javax.faces.event.ActionEvent;
 import javax.faces.event.ActionListener;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
+import javax.persistence.Temporal;
 import pomoc.JsfUtil;
 import pomoc.PaginationHelper;
 import pomoc.Zmiana_danych;
@@ -51,6 +52,81 @@ public class Managed_pracownik implements ActionListener, Serializable{
     public void setZmiana2(Zmiana_danych zmiana2) {  this.zmiana2 = zmiana2;    }
     private int powrot = 1;
     private int zmiana = 1;
+    
+    private String imie_filter;
+    private String nazwisko_filter;
+    private String numerTelefonu_filter;
+    private String adres_filter;
+    private String miasto_filter;
+    private String stanowisko_filter;
+    private String pensja_filter;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    Date dataRozpoczeciaPracy_filter;
+
+    public Date getDataRozpoczeciaPracy_filter() {
+        return dataRozpoczeciaPracy_filter;
+    }
+
+    public void setDataRozpoczeciaPracy_filter(Date dataRozpoczeciaPracy_filter) {
+        this.dataRozpoczeciaPracy_filter = dataRozpoczeciaPracy_filter;
+    }
+
+
+    public String getImie_filter() {
+        return imie_filter;
+    }
+
+    public void setImie_filter(String imie_filter) {
+        this.imie_filter = imie_filter;
+    }
+
+    public String getNazwisko_filter() {
+        return nazwisko_filter;
+    }
+
+    public void setNazwisko_filter(String nazwisko_filter) {
+        this.nazwisko_filter = nazwisko_filter;
+    }
+
+    public String getNumerTelefonu_filter() {
+        return numerTelefonu_filter;
+    }
+
+    public void setNumerTelefonu_filter(String numerTelefonu_filter) {
+        this.numerTelefonu_filter = numerTelefonu_filter;
+    }
+
+    public String getAdres_filter() {
+        return adres_filter;
+    }
+
+    public void setAdres_filter(String adres_filter) {
+        this.adres_filter = adres_filter;
+    }
+
+    public String getMiasto_filter() {
+        return miasto_filter;
+    }
+
+    public void setMiasto_filter(String miasto_filter) {
+        this.miasto_filter = miasto_filter;
+    }
+
+    public String getStanowisko_filter() {
+        return stanowisko_filter;
+    }
+
+    public void setStanowisko_filter(String stanowisko_filter) {
+        this.stanowisko_filter = stanowisko_filter;
+    }
+
+    public String getPensja_filter() {
+        return pensja_filter;
+    }
+
+    public void setPensja_filter(String pensja_filter) {
+        this.pensja_filter = pensja_filter;
+    }
 
     public int getZmiana() {
         return zmiana;
@@ -99,6 +175,7 @@ public class Managed_pracownik implements ActionListener, Serializable{
         }
     }
     
+    
     public DataModel getItems() {
         if (items == null || fasada.isStan()) {
             items = getPagination().createPageDataModel();
@@ -107,6 +184,7 @@ public class Managed_pracownik implements ActionListener, Serializable{
         powrot = 1;
         return items;
     }
+    
     
     private NumberConverter number_convert = new NumberConverter();
 
@@ -278,13 +356,30 @@ public class Managed_pracownik implements ActionListener, Serializable{
     }
     
     private void performDestroy() {
-        try {
-            getFasada().remove(pracownik_dto);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("Usunieto_pracownik"));
-        } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("Blad_usuwania"));
-            
-        }
+            getFasada().remove(pracownik_dto, 
+                    imie_filter, 
+                    nazwisko_filter, 
+                    numerTelefonu_filter, 
+                    adres_filter, 
+                    miasto_filter, 
+                    stanowisko_filter,
+                    pensja_filter,
+                    dataRozpoczeciaPracy_filter);
+//        try {
+//            getFasada().remove(pracownik_dto, 
+//                    imie_filter, 
+//                    nazwisko_filter, 
+//                    numerTelefonu_filter, 
+//                    adres_filter, 
+//                    miasto_filter, 
+//                    stanowisko_filter,
+//                    pensja_filter,
+//                    dataRozpoczeciaPracy_filter);
+//            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("Usunieto_pracownik"));
+//        } catch (Exception e) {
+//            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("Blad_usuwania"));
+//            
+//        }
     }
     
     public String destroy() {

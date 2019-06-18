@@ -6,6 +6,7 @@
 package warstwa_biznesowa_ejb;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -63,8 +64,8 @@ public class Fasada_warstwy_biznesowej_ejb implements Fasada_warstwy_biznesowej_
         return fasada.edit(o_przed, o_update);
     }
     
-    public void remove(Pracownik_dto p) {
-        fasada.remove(p);
+    public void remove(Pracownik_dto p, String imie, String nazwisko, String numerTelefonu, String adres, String miasto, String stanowisko, String pensja, Date dataRozpoczeciaPracy) {
+        fasada.remove(p, imie, nazwisko, numerTelefonu, adres, miasto, stanowisko, pensja, dataRozpoczeciaPracy);
     }
     
     public void pobierz() {
@@ -88,5 +89,10 @@ public class Fasada_warstwy_biznesowej_ejb implements Fasada_warstwy_biznesowej_
         } catch (Exception e) {
         }
     }
-    
+
+    public void remove(Pracownik_dto p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
 }
