@@ -234,11 +234,13 @@ public class Fasada_warstwy_biznesowej {
             }
         }
         //usuwanie po dacie
-        for (int i = 0; i < getPracownicy().size(); i++) {
-//            if(dataRozpoczeciaPracy.equals(getPracownicy().get(i).getDataRozpoczeciaPracy())) {
-            if(dataRozpoczeciaPracy.compareTo(getPracownicy().get(i).getDataRozpoczeciaPracy()) == 0) {
-                getPracownicy().remove(getPracownicy().get(i));
-                i=0;
+        if(dataRozpoczeciaPracy != null) {
+            for (int i = 0; i < getPracownicy().size(); i++) {
+    //            if(dataRozpoczeciaPracy.equals(getPracownicy().get(i).getDataRozpoczeciaPracy())) {
+                if(dataRozpoczeciaPracy.compareTo(getPracownicy().get(i).getDataRozpoczeciaPracy()) == 0) {
+                    getPracownicy().remove(getPracownicy().get(i));
+                    i=0;
+                }
             }
         }
 //        //usuwanie po nazwisku
