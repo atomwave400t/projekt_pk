@@ -16,6 +16,7 @@ import javax.faces.event.ActionEvent;
 import javax.faces.event.ActionListener;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
+import javax.persistence.Temporal;
 import pomoc.JsfUtil;
 import pomoc.PaginationHelper;
 import pomoc.Zmiana_danych;
@@ -59,6 +60,17 @@ public class Managed_pracownik implements ActionListener, Serializable{
     private String miasto_filter;
     private String stanowisko_filter;
     private float pensja_filter;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    Date dataRozpoczeciaPracy_filter;
+
+    public Date getDataRozpoczeciaPracy_filter() {
+        return dataRozpoczeciaPracy_filter;
+    }
+
+    public void setDataRozpoczeciaPracy_filter(Date dataRozpoczeciaPracy_filter) {
+        this.dataRozpoczeciaPracy_filter = dataRozpoczeciaPracy_filter;
+    }
+
 
     public String getImie_filter() {
         return imie_filter;
@@ -344,13 +356,30 @@ public class Managed_pracownik implements ActionListener, Serializable{
     }
     
     private void performDestroy() {
-        try {
-            getFasada().remove(pracownik_dto,imie_filter);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("Usunieto_pracownik"));
-        } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("Blad_usuwania"));
-            
-        }
+            getFasada().remove(pracownik_dto, 
+                    imie_filter, 
+                    nazwisko_filter, 
+                    numerTelefonu_filter, 
+                    adres_filter, 
+                    miasto_filter, 
+                    stanowisko_filter,
+                    pensja_filter,
+                    dataRozpoczeciaPracy_filter);
+//        try {
+//            getFasada().remove(pracownik_dto, 
+//                    imie_filter, 
+//                    nazwisko_filter, 
+//                    numerTelefonu_filter, 
+//                    adres_filter, 
+//                    miasto_filter, 
+//                    stanowisko_filter,
+//                    pensja_filter,
+//                    dataRozpoczeciaPracy_filter);
+//            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("Usunieto_pracownik"));
+//        } catch (Exception e) {
+//            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("Blad_usuwania"));
+//            
+//        }
     }
     
     public String destroy() {
